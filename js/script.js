@@ -1,10 +1,4 @@
-/******************************************
-Treehouse Techdegree:
-FSJS project 2 - List Filter and Pagination
-******************************************/
-   
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-
+//Treehouse Techdegree Project 2
 
 //Here I create my global variables
 //The constant that stores the list ietms
@@ -28,8 +22,7 @@ const itemsPerPage = 10;
        }
     }
  }
-//Testing the showPage function
-showPage(listItems, 1);
+
 
 
 //Function to create, append, and add function to the page buttons
@@ -48,15 +41,31 @@ const appendPageLinks = () => {
   pageDiv.appendChild(paginationDiv);
   //appending the Ul element to the paginationDiv
   paginationDiv.appendChild(ul);
-  for (let i = 0; i < numberOfPages; i++) {
+  for (let i = 1; i < numberOfPages + 1; i++) {
+    //creating the list elements that will house the button links
     const li = document.createElement('li');
+    //creating the anchor tag that will act as the button
     const a = document.createElement('a');
     ul.appendChild(li)
     li.appendChild(a)
     a.textContent = i;
+    //Adding functionality to the pagination links
+    a.addEventListener('click', () => {
+      //calling the show page function to display the proper list of names
+      showPage(listItems, i);
+      //looping through the links
+      for (let i = 0; i < numberOfPages + 1; i++){
+        //Selecting anchor elements to manipulate the active class
+        const aActive = document.querySelectorAll('a');
+        //setting anchor class to empty
+        aActive[i].className = ''
+        //only active anchor recieves the class of active
+        event.target.className = 'active'
+      }
+    })
   }
 }
 
-
-
-
+appendPageLinks();
+//calling show page function so that only the first 10 names show up when the page is loaded
+showPage(listItems, 1);

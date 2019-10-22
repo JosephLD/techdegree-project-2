@@ -1,2 +1,2 @@
 # techdegree-project-2
- My second techdegree project
+This is my second techdegree project.  Using various DOM manipulation techniques such as getting    elements and appending them to other elements I added HTML elements to the program without adding them to HTML file.  I also added event handlers to add functionality to links that I created to show and hide certain lists.  While parts of the project at first seemes challenging I found that taking a break and casually working through the problem in my head resolved most issues that I was having.
